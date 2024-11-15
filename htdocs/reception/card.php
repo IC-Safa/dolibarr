@@ -1263,8 +1263,7 @@ if ($action == 'create') {
 						$stock = +$product->stock_warehouse[$dispatchLines[$indiceAsked]['ent']]->real; // Convert to number
 					}
 					$deliverableQty = $dispatchLines[$indiceAsked]['qty'];
-					$cost_price = $dispatchLines[$indiceAsked]['pu'];
-
+					$cost_price = price($dispatchLines[$indiceAsked]['pu']);
 					// Quantity to send
 					print '<td class="center">';
 					if ($line->product_type == Product::TYPE_PRODUCT || getDolGlobalString('STOCK_SUPPORTS_SERVICES')) {
