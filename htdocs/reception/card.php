@@ -1263,7 +1263,7 @@ if ($action == 'create') {
 						$stock = +$product->stock_warehouse[$dispatchLines[$indiceAsked]['ent']]->real; // Convert to number
 					}
 					$deliverableQty = $dispatchLines[$indiceAsked]['qty'];
-					$cost_price = price($dispatchLines[$indiceAsked]['pu']);
+					$cost_price = $dispatchLines[$indiceAsked]['pu'];
 					// Quantity to send
 					print '<td class="center">';
 					if ($line->product_type == Product::TYPE_PRODUCT || getDolGlobalString('STOCK_SUPPORTS_SERVICES')) {
@@ -1279,7 +1279,7 @@ if ($action == 'create') {
 
 					if (getDolGlobalString('STOCK_CALCULATE_ON_RECEPTION') || getDolGlobalString('STOCK_CALCULATE_ON_RECEPTION_CLOSE')) {
 						print '<td>';
-						print '<input class="width75 right" name="cost_price'.$indiceAsked.'" id="cost_price'.$indiceAsked.'" value="'.$cost_price.'">';
+						print '<input class="width75 right" name="cost_price'.$indiceAsked.'" id="cost_price'.$indiceAsked.'" value="'.price($cost_price).'">';
 						print '</td>';
 					}
 
